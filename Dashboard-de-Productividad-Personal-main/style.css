@@ -1,0 +1,413 @@
+/* Fade in the body once it's fully ready */
+body.ready {
+  opacity: 1;
+}
+
+/* General layout and reset */
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* Allow main to grow and fill remaining space */
+main {
+  flex: 1;
+}
+
+/* Base styles for body */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  background: linear-gradient(to right, #0f172a, #1e293b, #334155);
+  color: #e0f2fe;
+  opacity: 0; /* Initial fade for transition */
+  transition: opacity 0.5s ease;
+}
+
+/* Header styles */
+header {
+  padding: 1.5rem;
+  background: rgba(30, 58, 138, 0.2);
+  text-align: center;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* Main title in header */
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #60a5fa;
+}
+
+/* Header button styles */
+header button {
+  background: #2563eb;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* Greeting text below header button */
+#saludo {
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: #93c5fd;
+}
+
+/* Main content grid layout */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Card (widget) styles */
+.card {
+  background: rgba(30, 64, 175, 0.1);
+  border: 1px solid rgba(147, 197, 253, 0.15);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* Card titles */
+.card h2 {
+  color: #3b82f6;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons inside cards */
+.card button {
+  background: #2563eb;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect for card buttons */
+.card button:hover {
+  background: #3b82f6;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #475569;
+  background-color: #1e293b;
+  color: #e0f2fe;
+}
+
+/* Validation message styles */
+#mensajeValidacion {
+  text-align: justify;
+  margin: 1%;
+  font-size: 12px;
+}
+
+/* Validation message for error */
+#mensajeValidacion.error {
+  color: rgb(106, 191, 248);
+}
+
+/* Validation message for success */
+#mensajeValidacion.ok {
+  color: rgb(37, 99, 235);
+}
+
+/* new text aling */
+.nuevaEntrada {
+  display: none;
+  margin-top: 1rem;
+}
+
+/* Unordered list base styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* List item styles */
+ul li {
+  background: #1e40af;
+  margin: 5px 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: #e0f2fe;
+}
+
+/* Footer styles */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2563eb;
+  border-top: 1px solid rgba(147, 197, 253, 0.15);
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 10px rgba(30, 58, 138, 0.3);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Smooth transitions for theme changes */
+body.ready,
+body.ready .card,
+body.ready header,
+body.ready footer {
+  transition: background 0.8s ease, color 0.8s ease;
+}
+
+/* Additional card transitions */
+body.ready .card {
+  transition: box-shadow 1s ease, color 1s ease;
+}
+
+/* Dark mode base styles */
+body.dark-mode {
+  background: #1a1a1a; 
+  color: #2563eb;
+}
+
+/* Dark mode card/header/footer background and text */
+body.dark-mode .card,
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #2a2a2a;
+  color: #938e8e;
+}
+
+/* Dark mode special effect for cards */
+body.dark-mode .card {
+  box-shadow: 0px 0px 15px #0f93f1, 0px 0px 15px #0f93f1 inset;
+  transition: box-shadow 1s ease, color 1s ease;
+}
+
+/* Styles for dark mode toggle button */
+#darkModeToggle {
+  position: fixed;
+  top: 3rem;
+  z-index: 10;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+/* Hover animation for toggle button */
+#darkModeToggle:hover {
+  transform: scale(1.1);
+}
+
+
+#ocultarRecientes {
+  display: none;
+}
+
+#tareaReciente{
+  display: none
+}
+
+/* Task list container */
+#listaTareas {
+  margin-top: 1rem;
+  padding: 0;
+  display: none;
+}
+
+/* Each task item - compact and clean */
+#listaTareas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;                /* Ensures vertical centering */
+  padding: 0.4rem 0.7rem;
+  margin-bottom: 0.3rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for item */
+#listaTareas li:hover {
+  transform: scale(1.08); /* Grows on hover */
+  background-color: #3b82f6; /* Highlighted background */
+  color: #f8fafc; /* Brighter text */
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3); /* Soft glow */
+  z-index: 1;
+}
+
+/* Task text spans */
+#listaTareas li span {
+  flex-grow: 1;
+  padding-right: 0.5rem;
+  line-height: 1.2;                   /* Tighter vertical spacing */
+}
+
+/* Delete button - now vertically centered and smaller */
+.btnEliminar {
+  display: flex;                      /* Flex to center icon */
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.85rem;                 /* Smaller icon */
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hover effect for delete button */
+.btnEliminar:hover {
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Button group layout */
+.tareas-controles {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Random Tip Text  */
+#tip {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.2rem; /* Increased from 2.2rem */
+  color: #38bdf8;
+  text-align: center;
+  margin: 1rem 0;
+  letter-spacing: 1px;
+  animation: pulseTip 3s infinite ease-in-out;
+  transition: transform 0.3s ease, color 0.3s ease;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Hover effect on tip */
+#tip:hover {
+  transform: scale(1.1) rotate(-1deg);
+  color: #0ea5e9;
+  text-shadow: 0 0 5px #38bdf8;
+  cursor: pointer;
+}
+
+/* Tip animation keyframes */
+@keyframes pulseTip {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  #tip {
+    font-size: 2rem;
+  }
+}
+
+
+/* Fullscreen Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #0f172a, #1e293b, #0f172a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease-out 2.8s forwards;
+}
+
+/* Title Styling */
+#preloader-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2rem, 8vw, 5rem); /* Responsive font size */
+  color: #38bdf8;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: zoomFade 2s ease-in-out;
+  text-shadow: 0 0 10px #38bdf8, 0 0 30px #0ea5e9;
+}
+
+/* Entry animation */
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Exit animation */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Fade in body only after preloader */
+body.ready {
+  opacity: 1;
+}
+
